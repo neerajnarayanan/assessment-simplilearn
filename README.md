@@ -4,10 +4,10 @@ Simplilearn Assessment application is Dockerised.
 
 To run using docker commands:
 
-docker-compose build
+docker compose build
 
 
-docker-compose up -d
+docker compose up -d
 
 Open http://localhost:3000/ to access the app.
 
