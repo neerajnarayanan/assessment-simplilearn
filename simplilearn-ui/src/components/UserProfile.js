@@ -78,8 +78,6 @@ const useStyles = makeStyles((theme) => ({
 const UserProfile = ({clearUserInfo,history}) => {
   const classes = useStyles();
   const currentUser = getCurrentUser();
-  console.log('check man', currentUser)
-
 
   return (
     <React.Fragment>

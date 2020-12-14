@@ -5,7 +5,6 @@ import config from '../config/config'
 import validator from "validator";
 
 const jwtPrivateSecret = config.JWT_PRIVATE_SECRET.replace(/\\n/gm, '\n')
-console.log('check amn', jwtPrivateSecret);
 
 const userSchema = new mongoose.Schema({
   email: {

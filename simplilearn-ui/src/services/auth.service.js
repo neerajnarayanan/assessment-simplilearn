@@ -16,18 +16,14 @@ export const addUser = userDetails => async dispatch => {
 
 export const loginUser = (userloginDetails, history) => async dispatch => {
     try {
-        console.log('loginuser-->', userloginDetails);
         const response = await axios.post(`http://localhost:8000/auth/login`, userloginDetails);
-        console.log('here1,',response);
-        if (response?.data?.status == 'success') {
-            console.log('inside success api respose', response);
+        if (response?.data?.status === 'success') {
             dispatch(ActionCreators.login(response.data));
             if (response.data?.token) {
                 localStorage.setItem('user', JSON.stringify(response.data));
                 history.push('/user-profile');
-                // window.location.reload();
             }
-           
+
 
         }
     } catch (error) {
@@ -38,4 +34,4 @@ export const loginUser = (userloginDetails, history) => async dispatch => {
 
 export const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem('user'));
-  };
+};

@@ -50,7 +50,6 @@ const SignUp = (props) => {
   const [submit, setSubmit] = useState(false);
 
   useEffect(() => {
-    console.log('errorMessage', errorMessage)
     if (!isError && errorMessage !== '') { setuserName(''); setEmail(''); setPassword(''); }
   }, [isError, errorMessage]);
 
@@ -173,7 +172,6 @@ const SignUp = (props) => {
 
 const mapStateToProps = state => {
   const { user } = state;
-  console.log('mapStateToProps triggered', user);
   return {
     isError: user?.isError,
     errorMessage: user?.errMessage,

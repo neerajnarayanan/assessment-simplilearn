@@ -8,12 +8,8 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  console.log('triggered reducer', action )
-  console.log( action.payload);
-
   switch (action.type) {
     case Types.LOGIN:
-    console.log('login reducer', action.payload.user)
       return {
         ...state,
         ...action.payload.user,
