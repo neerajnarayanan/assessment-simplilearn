@@ -10,9 +10,7 @@ import errorHandler from "./middleware/errorHandler";
 
 
 import authRouter from "./routes/auth.routes";
-
 import indexRouter from './routes/index';
-import usersRouter from './routes/users';
 
 var app = express();
 
@@ -22,11 +20,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
+app.options('*', cors());
+
 passport.initialize();
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 app.use('/auth', authRouter);
 
