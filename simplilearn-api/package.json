@@ -1,0 +1,38 @@
+{
+  "name": "simplilearn-api",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./build/index.js",
+    "dev": "npm run build && nodemon --inspect ./build/index.js",
+    "build": "babel src -d build --copy-files",
+    "watch": "babel src -d build --watch --copy-files"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "debug": "^2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.7",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "validator": "^13.5.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "nodemon": "^2.0.6"
+  }
+}
