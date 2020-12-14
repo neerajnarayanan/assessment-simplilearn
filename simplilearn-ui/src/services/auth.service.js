@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { ActionCreators } from '../actions/actionCreators';
-
+import {APPCONSTANTS} from '../constants/urlConstants';
 
 
 export const addUser = userDetails => async dispatch => {
     try {
-        const response = await axios.post(`http://localhost:8000/auth/signup`, userDetails);
+        const response = await axios.post(`${APPCONSTANTS.BASE_URL}${APPCONSTANTS.ADD_USER_API}`, userDetails);
         if (response?.data?.status === 'success') {
             dispatch(ActionCreators.addProfile(response.data));
         }
@@ -16,7 +16,7 @@ export const addUser = userDetails => async dispatch => {
 
 export const loginUser = (userloginDetails, history) => async dispatch => {
     try {
-        const response = await axios.post(`http://localhost:8000/auth/login`, userloginDetails);
+        const response = await axios.post(`${APPCONSTANTS.BASE_URL}${APPCONSTANTS.LOGIN_API}`, userloginDetails);
         if (response?.data?.status === 'success') {
             dispatch(ActionCreators.login(response.data));
             if (response.data?.token) {

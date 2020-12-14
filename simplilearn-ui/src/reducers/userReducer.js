@@ -29,6 +29,7 @@ const reducer = (state = initialState, action) => {
         ...action.payload.user,
         successMsg: `USER REG SUCCESS`,
         isSuccess: true,
+        isError: false,
         formSubmitted: false // after update user formsubmition reset
       }
     case Types.CLEAR_USER_INFO:

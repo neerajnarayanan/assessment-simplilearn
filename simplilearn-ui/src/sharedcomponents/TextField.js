@@ -3,10 +3,11 @@ import { TextValidator } from 'react-material-ui-form-validator';
 
 
 function TextFieldComponent(props) {
-    const {label, name, value, autoComplete, handleChange, validators,errorMessages } = props;
+    const {label, name, value, autoComplete, handleChange, validators,errorMessages,type } = props;
 
     return (
         <TextValidator
+            type={type}
             fullWidth
             label={label}
             name={name}
