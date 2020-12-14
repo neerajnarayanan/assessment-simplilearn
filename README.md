@@ -1,7 +1,8 @@
 # Simplilearn Assessment
 
-App is Dockerised.
-To run using docker commands,
+Simplilearn Assessment application is Dockerised.
+
+To run using docker commands:
 
 docker-compose build
 
@@ -24,19 +25,18 @@ seperately and install dependencies with:
 ```
 npm install
 ```
-```
 
 Then start the example simplilearn-api locally:
 
 ```
 npm run dev
-```
+
 ```
 
 To start simplilearn-ui locally:
 
 ```
-npm run
+npm start
 ```
 
 The app should now be up and running at http://localhost:3000 🚀
