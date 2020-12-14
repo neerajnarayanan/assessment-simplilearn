@@ -20,6 +20,7 @@ const reducer = (state = initialState, action) => {
           return {
             ...state,
             isError: true,
+            isSuccess: false,
             errMessage:  action.payload?.error?.message, 
             formSubmitted: false // after update user formsubmition reset
           }

@@ -53,6 +53,10 @@ const SignUp = (props) => {
     if (!isError && errorMessage !== '') { setuserName(''); setEmail(''); setPassword(''); }
   }, [isError, errorMessage]);
 
+  useEffect(() => {
+    if (isSuccess) { setuserName(''); setEmail(''); setPassword(''); }
+  }, [isSuccess]);
+
   const handleSubmit = () => {
     let userObj = {
       userName,
