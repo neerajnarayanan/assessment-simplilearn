@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const SignUp = (props) => {
-  const { registerUser, isError, errorMessage, isSuccess, successMessage } = props;
+  const { history,registerUser, isError, errorMessage, isSuccess, successMessage } = props;
   const classes = useStyles();
   const [userName, setuserName] = useState('');
   const [email, setEmail] = useState('');
@@ -134,17 +134,38 @@ const SignUp = (props) => {
             className={classes.submit}
             btnTxt="Sign Up"
           />
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="#" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
         </ValidatorForm>
-        {isError && <ToastComponent message={errorMessage} />}
-        {isSuccess && <ToastComponent message={successMessage} />}
+
+        <Grid container justify="flex-end">
+          <Grid item>
+            <Link onClick={() => history.push('/sign-in')} style={{ cursor: 'pointer' }} variant="body2">
+              Already have an account? Sign in
+            </Link>
+          </Grid>
+        </Grid>
+        {/* {isError && <ToastComponent message={errorMessage} />}
+        {isSuccess && <ToastComponent message={successMessage} />} */}
       </div>
+      {isSuccess && (
+            <div className="form-group">
+              <div
+                className={isSuccess ? 'alert alert-success' : 'alert alert-danger'}
+                role="alert"
+              >
+                SUCCESS, YOU CAN NOW LOGIN USING YOUR CREDENTIALS
+              </div>
+            </div>
+          )}
+           {isError && (
+            <div className="form-group">
+              <div
+                className={isError ? 'alert alert-danger' :'alert alert-success'}
+                role="alert"
+              >
+                {errorMessage}
+              </div>
+            </div>
+          )}
     </Container>
   );
 }
@@ -152,7 +173,7 @@ const SignUp = (props) => {
 
 const mapStateToProps = state => {
   const { user } = state;
-  console.log(user);
+  console.log('mapStateToProps triggered', user);
   return {
     isError: user?.isError,
     errorMessage: user?.errMessage,

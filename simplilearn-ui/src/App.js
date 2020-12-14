@@ -1,25 +1,30 @@
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Register from './components/Register';
 import Login from './components/Login';
 import UserProfile from './components/UserProfile';
+import { ActionCreators } from '../src/actions/actionCreators';
+import { getCurrentUser } from './services/auth.service';
+
 
 function App(props) {
-  const { currentUser } = props;
+  const { currentUser, clearUserInfo} = props;
+  const [currentUserInfo, setCurrentUserInfo] = useState(null);
+  useEffect(() => {
+    const user = getCurrentUser();
+    if (user) {
+      setCurrentUserInfo(user);
+    }
+  }, [currentUser]);
   return (
     <Router>
       <div className="App">
         <nav className="navbar navbar-expand-lg navbar-light fixed-top">
           <div className="container">
-            {/* <Link className="navbar-brand" to={"/sign-in"}>NIRANJAN COMAPNY</Link> */}
-            {currentUser ?
-              <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <Link className="nav-link" to={"/sign-out"}>LogOut</Link>
-                </li>
-              </ul> : <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+            {!currentUserInfo && <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
                     <Link className="nav-link" to={"/sign-in"}>Login</Link>
@@ -49,6 +54,9 @@ function App(props) {
 
 function mapStateToProps(state) {
   const { user } = state
-  return { currentUser: user?.data?.user}
+  return { currentUser: user?.data?.user }
 }
-export default connect(mapStateToProps, null)(App);
+const mapDispatchToProps = dispatch => ({
+  clearUserInfo: () => dispatch(ActionCreators.clearUserData())
+})
+export default connect(mapStateToProps, mapDispatchToProps)(App);

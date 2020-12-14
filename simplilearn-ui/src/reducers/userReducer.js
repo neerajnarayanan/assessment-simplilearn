@@ -8,6 +8,7 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
+  console.log('triggered reducer', action )
   console.log( action.payload);
 
   switch (action.type) {
@@ -34,6 +35,10 @@ const reducer = (state = initialState, action) => {
         isSuccess: true,
         formSubmitted: false // after update user formsubmition reset
       }
+    case Types.CLEAR_USER_INFO:
+    return {
+      ...initialState
+    }
     default:
       return state;
   }

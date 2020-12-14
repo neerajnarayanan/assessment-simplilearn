@@ -1,4 +1,4 @@
-import { Types } from '../constants/actionTypes';
+import { Types } from '../constants/actionTypes'; 
 
 export const ActionCreators = {
 
@@ -6,6 +6,7 @@ export const ActionCreators = {
 
   login: (user) => ({ type: Types.LOGIN, payload: { user } }),
   // successHandler: (success) => ({ type: Types.SUCCESS, payload: {success  } }),
-  errorHandler: (error) => ({ type: Types.API_FAILURE, payload: {error  } })
+  errorHandler: (error) => ({ type: Types.API_FAILURE, payload: {error  } }),
+  clearUserData: () => ({ type: Types.CLEAR_USER_INFO})
 
 }

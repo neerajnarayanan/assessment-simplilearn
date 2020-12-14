@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SignIn = props => {
-  const {login, history} = props;
+  const {login, history, isError, errorMessage} = props;
   const classes = useStyles();
 
   const [email, setEmail] = useState('');
@@ -112,7 +112,7 @@ const SignIn = props => {
           <Grid item xs>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link  onClick={() => history.push('/sign-up')} style={{ cursor: 'pointer' }} variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
@@ -120,11 +120,26 @@ const SignIn = props => {
           </div>
         </ValidatorForm>
       </div>
+      {isError && (
+            <div className="form-group">
+              <div
+                className={isError ? 'alert alert-danger' :'alert alert-success'}
+                role="alert"
+              >
+                {`LOGIN FAILURE`}
+              </div>
+            </div>
+          )}
     </Container>
   );
 }
 
-const mapStateToProps = state => ({})
+const mapStateToProps = state => {
+  const { user } = state;
+  return {
+    isError: user?.isError,
+  }
+}
 const mapDispatchToProps = dispatch => ({
   login: (userObj, history) => dispatch(loginUser(userObj, history))
 })
