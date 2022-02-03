@@ -104,6 +104,22 @@ const SignIn = props => {
             className={classes.submit}
             btnTxt="Sign In"
           />
+            <CustomButton
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            btnTxt="Sign In"
+          />
+            <CustomButton
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            btnTxt="Sign In"
+          />
           <Grid container>
           <Grid item xs>
             </Grid>
