@@ -1,13 +1,13 @@
 version: 0.0
 os: linux
 files:
-  - source: .
+  - source: /
     destination: /home/ec2-user/deployment
 hooks:
-  AfterInstall:
-   - location: setup.sh
-     timeout: 300
-     runas: root
+  # AfterInstall:
+  #  - location: setup.sh
+  #    timeout: 300
+  #    runas: root
   ApplicationStart:
    - location: run.sh
      timeout: 300
