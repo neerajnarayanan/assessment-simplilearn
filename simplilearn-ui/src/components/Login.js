@@ -62,7 +62,7 @@ const SignIn = props => {
         <Avatar className={classes.avatar}>
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Sign in to the world of Effort 
         </Typography>
         <ValidatorForm className={classes.form}
             onSubmit={handleSubmit}>
