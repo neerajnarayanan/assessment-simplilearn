@@ -5,10 +5,10 @@ services:
     build:
       context: ./simplilearn-ui
       dockerfile: Dockerfile
-    stdin_open: true
+    # stdin_open: true
     volumes:
-      - ./simplilearn-ui/src:/app/src:delegated
-      - ./simplilearn-ui/public:/app/public:delegated
+      - ./simplilearn-ui/src:/simplilearn-ui/src:delegated
+      - ./simplilearn-ui/public:/simplilearn-ui/public:delegated
     depends_on:
       - api-simplilearn
     ports:
