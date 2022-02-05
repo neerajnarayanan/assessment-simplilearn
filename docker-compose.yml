@@ -7,8 +7,7 @@ services:
       dockerfile: Dockerfile
     stdin_open: true
     volumes:
-      - ./simplilearn-ui/src:/app/src
-      - ./simplilearn-ui/public:/app/public
+      - ./simplilearn-ui:/app
       - /app/node_modules
     depends_on:
       - api-simplilearn
