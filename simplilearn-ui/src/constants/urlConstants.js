@@ -3,3 +3,4 @@ export const APPCONSTANTS = {
     LOGIN_API: 'auth/login',
     ADD_USER_API: 'auth/signup'
   }
+  
